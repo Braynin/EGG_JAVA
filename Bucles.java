@@ -13,6 +13,26 @@ public class Bucles {
             System.out.println(string);
         }
 
+        System.out.println("Que letra buscaras?: ");
+        String letraBuscar = sc.nextLine();
+        int contador = 0;
+        for (String letra : fraseSeparada) {
+            if (letra.equalsIgnoreCase(letraBuscar)) {
+                contador++;
+            }
+        }
+        if (contador == 0) {
+            System.out.println("No se encontro la letra");
+        } else {
+            System.out.println("La letra se repite " + contador + " veces");
+        }
+
+        /*
+         * for (String string : fraseSeparada) {
+         * 
+         * }
+         */
+
         /*
          * Random random = new Random();
          * System.out.print("Cuantos palabras son?: ");
