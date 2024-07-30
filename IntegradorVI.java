@@ -7,24 +7,35 @@ public class IntegradorVI {
 
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
-        int option;
-        do {
-            mostrarMenu();
-            option = sc.nextInt();
-            sc.nextLine();
-            switch (option) {
-                case 1:
-                    registrarAlumno(sc);
-                    break;
+        try {
+            int option;
+            do {
+                mostrarMenu();
+                option = sc.nextInt();
+                sc.nextLine();
+                switch (option) {
+                    case 1:
+                        registrarAlumno(sc);
+                        break;
+                    case 2:
+                        mostrarAlumnos();
+                        break;
+                    case 3:
+                        promedioNotas();
+                        break;
+                    case 7:
+                        System.out.println("Saliendo del programa.");
+                        break;
+                    default:
+                        System.out.println("Opción inválida, fuera del rango. Intente nuevamente.");
+                        break;
+                }
+            } while (option != 7);
+        } catch (Exception InputMismatchException) {
+            System.out.println("Ingrese un valor numerico entre 1 y 7");
+            main(args);
+        }
 
-                case 7:
-                    System.out.println("Saliendo del programa.");
-                    break;
-                default:
-                    System.out.println("Opción inválida. Intente nuevamente.");
-                    break;
-            }
-        } while (option != 7);
         sc.close();
     }
 
@@ -63,5 +74,21 @@ public class IntegradorVI {
         } catch (NumberFormatException e) {
             System.out.println("La nota debe ser un número válido.");
         }
+    }
+
+    public static void mostrarAlumnos() {
+        System.out.println("Listado de Alumnos:");
+        for (int i = 0; i < nombres.size(); i++) {
+            System.out.println((i + 1) + ". " + nombres.get(i) + " - " + notas.get(i));
+        }
+    }
+
+    public static void promedioNotas() {
+        System.out.print("Promedio de Notas:");
+        double suma = 0.0;
+        for (int i = 0; i < notas.size(); i++) {
+            suma += notas.get(i);
+        }
+        System.out.println(suma / notas.size());
     }
 }
