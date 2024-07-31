@@ -23,6 +23,12 @@ public class IntegradorVI {
                     case 3:
                         promedioNotas();
                         break;
+                    case 4:
+                        buscarAlumno(sc);
+                        break;
+                    case 5:
+                        modificarNota(sc);
+                        break;
                     case 7:
                         System.out.println("Saliendo del programa.");
                         break;
@@ -90,5 +96,30 @@ public class IntegradorVI {
             suma += notas.get(i);
         }
         System.out.println(suma / notas.size());
+    }
+
+    public static void buscarAlumno(Scanner sc) {
+        System.out.println("Ingrese el nombre del alumno a buscar: ");
+        String nombre = sc.nextLine();
+        if (nombres.contains(nombre)) {
+            int index = nombres.indexOf(nombre);
+            System.out.println("La nota del alumno es: " + notas.get(index));
+        } else {
+            System.out.println("El alumno no se encuentra registrado.");
+        }
+    }
+
+    public static void modificarNota(Scanner sc) {
+        System.out.println("Ingrese el nombre del alumno a modificar: ");
+        String nombre = sc.nextLine();
+        if (nombres.contains(nombre)) {
+            int index = nombres.indexOf(nombre);
+            System.out.println("Ingrese la nueva nota: ");
+            double nuevaNota = Double.parseDouble(sc.nextLine());
+            notas.set(index, nuevaNota);
+            System.out.println("Nota modificada correctamente.");
+        } else {
+            System.out.println("El alumno no se encuentra registrado.");
+        }
     }
 }
