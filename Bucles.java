@@ -28,12 +28,6 @@ public class Bucles {
         }
 
         /*
-         * for (String string : fraseSeparada) {
-         * 
-         * }
-         */
-
-        /*
          * Random random = new Random();
          * System.out.print("Cuantos palabras son?: ");
          * int cantidad = sc.nextInt();
