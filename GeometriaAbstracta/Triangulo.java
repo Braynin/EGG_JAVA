@@ -53,26 +53,15 @@ public class Triangulo extends FigurasAbs implements Dibujable {
     public void dibujar() {
         System.out.println("Dibujando un triangulo ...");
         if (esTrianguloValido(lado1, lado2, lado3)) {
-            for (int i = 0; i < lado2; i++) {
-                System.out.println("*");
-            }
-
-            // Dibujar la hipotenusa (lado c) y el cateto horizontal (lado a)
             for (int i = 0; i < lado1; i++) {
-                for (int j = 0; j <= i; j++) {
-                    if (j == 0) {
-                        System.out.print("  ");
-                    }
-                    if (j == i) {
-                        System.out.print("*");
-                    } else {
-                        System.out.print(" ");
-                    }
+                for (int j = 0; j < i + 1; j++) {
+                    System.out.print("* ");
                 }
                 System.out.println();
             }
         } else {
             System.out.println("Los lados proporcionados no forman un triángulo válido.");
+
         }
     }
 
